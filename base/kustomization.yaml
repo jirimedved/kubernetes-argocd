@@ -7,8 +7,6 @@ resources:
 patchesStrategicMerge:
 - argocd-application-controller-clusterrolebinding.yaml
 - argocd-dex-server-deployment.yaml
-#- argocd-redis-haproxy-role.yaml
-#- argocd-redis-haproxy-rolebinding.yaml
 - argocd-server-clusterrolebinding.yaml
 - argocd-server-service.yaml
 
