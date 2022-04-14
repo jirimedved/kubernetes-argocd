@@ -2259,7 +2259,7 @@ metadata:
     app.kubernetes.io/name: argocd-redis-haproxy
     app.kubernetes.io/part-of: argocd
   name: argocd-redis-haproxy
-  namespace: argocd-system
+  namespace: argocd
 rules:
 - apiGroups:
   - security.openshift.io
@@ -2454,7 +2454,7 @@ metadata:
     app.kubernetes.io/name: argocd-redis-haproxy
     app.kubernetes.io/part-of: argocd
   name: argocd-redis-haproxy
-  namespace: argocd-system
+  namespace: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

@@ -2,33 +2,18 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/argoproj/argo-cd/manifests/ha/cluster-install?ref=v1.8.7
+- https://github.com/argoproj/argo-cd/manifests/ha/cluster-install?ref=v2.3.3
 
 patchesStrategicMerge:
 - argocd-application-controller-clusterrolebinding.yaml
-- argocd-dex-server-deployment.yaml
+- argocd-cm.yaml
 - argocd-server-clusterrolebinding.yaml
 - argocd-server-service.yaml
 
 patchesJson6902:
-  - target:
-      group: rbac.authorization.k8s.io
-      version: v1
-      kind: Role
-      name: argocd-redis-haproxy
-      namespace: argocd
-    patch: |-
-      - op: replace
-        path: /metadata/namespace
-        value: argocd-system
-
-  - target:
-      group: rbac.authorization.k8s.io
-      version: v1
-      kind: RoleBinding
-      name: argocd-redis-haproxy
-      namespace: argocd
-    patch: |-
-      - op: replace
-        path: /metadata/namespace
-        value: argocd-system
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: argocd-repo-server
+  path: argocd-application-controller-deployment-command-log-level.yaml

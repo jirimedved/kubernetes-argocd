@@ -1,0 +1,7 @@
+- op: add
+  path: /spec/template/spec/containers/0/command/2
+  value: --loglevel
+
+- op: add
+  path: /spec/template/spec/containers/0/command/3
+  value: "error"
